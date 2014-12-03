@@ -86,7 +86,8 @@
 			draggable: el.children[0] && el.children[0].nodeName || (/[uo]l/i.test(el.nodeName) ? 'li' : '*'),
 			ghostClass: 'sortable-ghost',
 			ignore: 'a, img',
-			filter: null
+			filter: null,
+			dragOverSilenceDuration: 30
 		};
 
 		// Set default options
@@ -365,7 +366,7 @@
 					;
 
 					_silent = true;
-					setTimeout(_unsilent, 30);
+					setTimeout(_unsilent, this.options.dragOverSilenceDuration);
 
 					if( floating ){
 						after = (target.previousElementSibling === dragEl) && !isWide || halfway && isWide
