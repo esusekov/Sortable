@@ -102,7 +102,7 @@
 			filter: null,
 			dragOverSilenceDuration: 30,
 			animation: 0,
-			setData: function (dataTransfer, dragEl) {
+			setData: function (evt, dataTransfer, dragEl) {
 				dataTransfer.setData('Text', dragEl.textContent);
 			}
 		};
@@ -374,7 +374,7 @@
 			}
 			else {
 				dataTransfer.effectAllowed = 'move';
-				options.setData && options.setData.call(this, dataTransfer, dragEl);
+				options.setData && options.setData.call(this, evt, dataTransfer, dragEl);
 
 				_on(document, 'drop', this);
 			}
